@@ -14,17 +14,32 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const baseUrl = `https://www.giantbomb.com/api`;
-      const endPoint = `/achievements?`;
-      const API_KEY = `api_key=89d267d805955ead6ffbe84a75d2b8b46f4826fc`;
-      const q = ``;
-      const url = `${baseUrl}${endPoint}${API_KEY}${q}`;
+      // const baseUrl = `https://www.giantbomb.com/api`;
+      // const endPoint = `/achievements?`;
+      // const API_KEY = `api_key=89d267d805955ead6ffbe84a75d2b8b46f4826fc`;
+      // const q = ``;
+      // const url = `${baseUrl}${endPoint}${API_KEY}${q}`;
+      // $.ajax({
+      //   method: 'GET',
+      //   url: url,
+      // }).then(function(data) {
+      //   console.log(data);
+      //   document.write(JSON.stringify(data));
+      // });
+
+      $.ajaxPrefilter(function(options) {
+        if (options.crossDomain && jQuery.support.cors) {
+          options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+        }
+      });
+
       $.ajax({
         method: 'GET',
-        url: url,
-      }).then(function(data) {
-        console.log(data);
-        document.write(JSON.stringify(data));
+        url:
+          'https://www.giantbomb.com/api/companies/?format=json&limit=20&api_key=f8b25ba61fb0e4e55e136a18b2ef9aaf331e3187',
+        success: res => {
+          console.log(res);
+        },
       });
     </script>
   </body>
