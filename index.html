@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CORS TEST</title>
+  </head>
+
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const baseUrl = `https://www.giantbomb.com/api`;
+      const endPoint = `/achievements?`;
+      const API_KEY = `api_key=89d267d805955ead6ffbe84a75d2b8b46f4826fc`;
+      const q = ``;
+      const url = `${baseUrl}${endPoint}${API_KEY}${q}`;
+      $.ajax({
+        method: 'GET',
+        url: url,
+      }).then(function(data) {
+        console.log(data);
+        document.write(JSON.stringify(data));
+      });
+    </script>
+  </body>
+</html>
+✕
